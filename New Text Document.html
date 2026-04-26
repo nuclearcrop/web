@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Randeep Raj Portfolio</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Dancing Script', cursive;
+      background: #091413;
+      color: #B0E4CC;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #285A48;
+      padding: 12px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
+      margin-left: 50px;
+    }
+
+    nav a {
+      color: #B0E4CC;
+      margin-left: 15px;
+      text-decoration: none;
+      font-size: 2rem;
+      margin-right: 20px;
+    }
+
+    section {
+      padding: 100px 20px 60px;
+      max-width: 1100px;
+      margin: auto;
+      opacity: 0;
+      transform: translateX(100px);
+      transition: all 1s ease;
+    }
+
+    section:nth-of-type(even) {
+      transform: translateX(-100px);
+    }
+
+    section.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 4rem;
+      color: #408A71;
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 0px;
+    }
+
+    .hero-text {
+      flex: 2;
+      text-align: left;
+      font-size: 1rem; /* FIXED */
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 10px;
+      filter: brightness(0.85) contrast(1.1) saturate(0.9);
+      
+    }
+
+    #typing {
+      font-size: 2.5rem;
+      margin-top: 10px;
+    }
+
+    hr {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #408A71, transparent);
+      margin: 0;
+    }
+
+    .me,
+    .journey {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-height: 60vh;
+      padding: 20px 0;
+    }
+
+    .journey img {
+      width: 100%;
+      max-width: 900px;
+      margin: 20px auto;
+      display: block;
+      border-radius: 10px;
+    }
+
+    .card {
+      background: #285A48;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 70vh;
+      text-align: center;
+    }
+
+    .contact p {
+      font-size: 1.3rem;
+      margin: 15px 0;
+      padding: 12px 20px;
+      background: #285A48;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .contact p:hover {
+      transform: scale(1.1);
+      color: #408A71;
+    }
+
+    footer {
+      text-align: center;
+      padding: 8px;
+      background: #285A48;
+      font-size: 1.6rem;
+     
+    }
+    .p1{
+        font-size: 1.8rem;
+    }
+    
+
+    /* ✅ MOBILE SCALING (same layout, just smaller) */
+    @media (max-width: 768px) {
+
+      header {
+        padding: 8px 15px;
+      }
+
+      header h1 {
+        font-size: 1.3rem;
+        margin-left: 10px;
+      }
+
+      nav a {
+        font-size: 0.7rem;
+        margin-left: 8px;
+        margin-right: 5px;
+      }
+
+      section {
+        padding: 80px 15px 40px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .hero {
+        gap: 10px;
+      }
+      .me{
+        margin-left: 15px;
+      }
+      .p1{
+        font-size: 1rem;
+      }
+      .journey{
+        margin-left: 15px;
+      }
+
+      .hero-text {
+        font-size: 0.9rem;
+      }
+
+      #typing {
+        font-size: 1rem;
+      }
+
+      .hero-image img {
+        max-width: 150px;
+      }
+
+      .journey img {
+        max-width: 100%;
+      }
+
+      .card {
+        padding: 12px;
+        font-size: 0.9rem;
+      }
+
+      .contact {
+        min-height: auto;
+        padding: 30px 10px;
+      }
+
+      .contact p {
+        font-size: 1rem;
+        padding: 8px 12px;
+      }
+
+      footer {
+        font-size: 0.6rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Randeep Raj</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#journey">Journey</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-text">
+    <h2>Hello, I'm Randeep Raj</h2>
+    <p id="typing"></p>
+  </div>
+
+  <div class="hero-image">
+    <img src="profile.png" alt="Profile">
+  </div>
+</section>
+
+<hr>
+
+<section id="about" class="me">
+  <h2>About Me</h2>
+  <p class="p1">My name is Randeep Raj, a Class 9 student at <a href="https://www.google.com/maps/search/The+Velammal+International+School+Ponneri" style="color: #B0E4CC;">The Velammal International School, Ponneri</a> . Originally from Patna, Bihar, I am currently based in Chennai. I am a self-driven learner with a strong inclination toward technology and creativity.
+
+Over the past two years, I have been developing my programming skills in HTML, CSS, JavaScript, and C++, while also exploring the fundamentals of AI and experimenting with emerging tools. Alongside coding, I hold a Grade 3 certification in Guitar from Trinity College London, which reflects my passion for music and discipline in practice.
+
+I also have foundational experience in video editing and enjoy working with digital creative tools. My interests extend to reading, gaming, and continuously challenging myself with concepts beyond my current level of understanding.
+
+I would describe myself as a curious and introspective individual, who prefers learning through exploration and consistent practice. Currently, I am focused on building a Python-based application and strengthening my technical foundation.
+
+In the long term, I aim to evolve into a capable and independent individual with an entrepreneurial mindset, combining creativity, technology, and problem-solving in meaningful ways.</p>
+  <hr>
+</section>
+
+<hr>
+
+<section id="journey" class="journey">
+  <h2>My Journey</h2><br>
+  <img src="3.png" alt="My Journey">
+  <div class="card">
+    <p>Describe your journey here.</p>
+  </div>
+  <hr>
+</section>
+
+<hr>
+
+<section id="contact" class="contact">
+  <h2>Contact</h2>
+  <p>📧 yourmail@gmail.com</p>
+  <p>📷 your_insta_id</p>
+</section>
+
+<footer>
+  <p>© 2026 Randeep Raj</p>
+</footer>
+
+<script>
+  const roles = ["Programmer", "Video Editor", "Guitarist"];
+  let roleIndex = 0, charIndex = 0;
+  const prefix = "I am ";
+
+  function type() {
+    let current = roles[roleIndex];
+    document.getElementById("typing").textContent = prefix + current.slice(0, ++charIndex);
+
+    if (charIndex === current.length) {
+      setTimeout(erase, 1500);
+    } else {
+      setTimeout(type, 80);
+    }
+  }
+
+  function erase() {
+    let current = roles[roleIndex];
+    if (charIndex > 0) {
+      document.getElementById("typing").textContent = prefix + current.slice(0, --charIndex);
+      setTimeout(erase, 40);
+    } else {
+      roleIndex = (roleIndex + 1) % roles.length;
+      setTimeout(type, 300);
+    }
+  }
+
+  type();
+
+  const sections = document.querySelectorAll("section");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>
