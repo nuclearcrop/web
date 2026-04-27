@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Randeep Raj Portfolio</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;600&display=swap"
+    rel="stylesheet">
 
   <style>
     * {
@@ -17,7 +18,7 @@
 
     body {
       font-family: 'Dancing Script', cursive;
-      background: #091413;
+      background: linear-gradient(to bottom right, rgb(153, 151, 151), rgb(0, 0, 0), rgb(153, 151, 151), rgb(0, 0, 0), rgb(112, 110, 110));
       color: #B0E4CC;
     }
 
@@ -36,24 +37,23 @@
     header h1 {
       font-family: 'Great Vibes', cursive;
       font-size: 2.5rem;
-      margin-left: 50px;
     }
 
     nav a {
       color: #B0E4CC;
       margin-left: 15px;
       text-decoration: none;
-      font-size: 2rem;
+      font-size: 1.6rem;
       margin-right: 20px;
     }
 
     section {
-      padding: 100px 20px 60px;
       max-width: 1100px;
-      margin: auto;
+      margin: 0px 0px 0px 60px;
       opacity: 0;
       transform: translateX(100px);
       transition: all 1s ease;
+      scroll-margin-top: 100px;
     }
 
     section:nth-of-type(even) {
@@ -77,13 +77,15 @@
       justify-content: space-between;
       align-items: center;
       gap: 20px;
-      padding-bottom: 0px;
+      padding: 50px 0px 0px 0px;
+      margin: auto;
     }
 
     .hero-text {
       flex: 2;
-      text-align: left;
-      font-size: 1rem; /* FIXED */
+      text-align: center;
+      font-size: 1rem;
+      /* FIXED */
     }
 
     .hero-image {
@@ -97,7 +99,7 @@
       max-width: 350px;
       border-radius: 10px;
       filter: brightness(0.85) contrast(1.1) saturate(0.9);
-      
+
     }
 
     #typing {
@@ -113,12 +115,11 @@
     }
 
     .me,
-    .journey {
+    .journey,
+    .Strings {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      min-height: 60vh;
-      padding: 20px 0;
     }
 
     .journey img {
@@ -140,8 +141,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      min-height: 70vh;
       text-align: center;
+      margin-top: 40px;
+      margin-bottom: 50px;
     }
 
     .contact p {
@@ -163,50 +165,70 @@
       padding: 8px;
       background: #285A48;
       font-size: 1.6rem;
-     
+
     }
-    .p1{
-        font-size: 1.8rem;
+
+    .p1,
+    .p3,
+    .p2 {
+      font-size: 1.8rem;
+      margin-left: 20px;
     }
-    
+
+    .journey,
+    .me,
+    .Strings {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+
+
 
     /* ✅ MOBILE SCALING (same layout, just smaller) */
+    /* ✅ MOBILE OPTIMIZED VERSION */
     @media (max-width: 768px) {
 
+      body {
+        font-size: 14px;
+      }
+
       header {
-        padding: 8px 15px;
+        padding: 10px 15px;
       }
 
       header h1 {
-        font-size: 1.3rem;
-        margin-left: 10px;
+        font-size: 1.4rem;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
       }
 
       nav a {
-        font-size: 0.7rem;
-        margin-left: 8px;
-        margin-right: 5px;
+        font-size: 12px;
+        display: contents;
+        word-spacing: 10PX;
       }
 
       section {
-        padding: 80px 15px 40px;
-      }
+        transform: none;
+        /* remove slide offset on mobile */
+        opacity: 1;
+        /* show instantly (no delay feel) */
+      margin-left: 20px;}
 
       h2 {
-        font-size: 1.5rem;
+        font-size: 2rem;
+        text-align: center;
       }
 
+      /* HERO SECTION */
       .hero {
+        flex-direction: column;
+        text-align: center;
         gap: 10px;
-      }
-      .me{
-        margin-left: 15px;
-      }
-      .p1{
-        font-size: 1rem;
-      }
-      .journey{
-        margin-left: 15px;
+        padding-top: 300px;
+        padding-bottom: 200px;
       }
 
       .hero-text {
@@ -214,34 +236,45 @@
       }
 
       #typing {
-        font-size: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .hero-image {
+        justify-content: center;
       }
 
       .hero-image img {
-        max-width: 150px;
+        display: none;
+        /* ✅ FIXED */
+        max-width: 200px;
       }
 
+      /* TEXT */
+      .p1,
+      .p2,
+      .p3 {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      /* JOURNEY IMAGE */
       .journey img {
         max-width: 100%;
       }
 
-      .card {
-        padding: 12px;
-        font-size: 0.9rem;
-      }
-
-      .contact {
-        min-height: auto;
-        padding: 30px 10px;
-      }
-
+      /* CONTACT */
       .contact p {
         font-size: 1rem;
-        padding: 8px 12px;
+        padding: 10px;
       }
 
       footer {
-        font-size: 0.6rem;
+        font-size: 1rem;
+        padding: 10px;
       }
     }
   </style>
@@ -249,107 +282,119 @@
 
 <body>
 
-<header>
-  <h1>Randeep Raj</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#journey">Journey</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+  <header>
+    <h1>Randeep Raj</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#journey">Technical Journey</a>
+      <a href="#Strings">Strings</a>
+      <a href="#contact">Contact</a>
 
-<section id="home" class="hero">
-  <div class="hero-text">
-    <h2>Hello, I'm Randeep Raj</h2>
-    <p id="typing"></p>
-  </div>
 
-  <div class="hero-image">
-    <img src="profile.png" alt="Profile">
-  </div>
-</section>
+    </nav>
+  </header>
 
-<hr>
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h2>Hello, I'm Randeep Raj</h2>
+      <p id="typing"></p>
+    </div>
 
-<section id="about" class="me">
-  <h2>About Me</h2>
-  <p class="p1">My name is Randeep Raj, a Class 9 student at <a href="https://www.google.com/maps/search/The+Velammal+International+School+Ponneri" style="color: #B0E4CC;">The Velammal International School, Ponneri</a> . Originally from Patna, Bihar, I am currently based in Chennai. I am a self-driven learner with a strong inclination toward technology and creativity.
+    <div class="hero-image">
+      <img src="profile.png" alt="Profile">
+    </div>
+  </section>
 
-Over the past two years, I have been developing my programming skills in HTML, CSS, JavaScript, and C++, while also exploring the fundamentals of AI and experimenting with emerging tools. Alongside coding, I hold a Grade 3 certification in Guitar from Trinity College London, which reflects my passion for music and discipline in practice.
-
-I also have foundational experience in video editing and enjoy working with digital creative tools. My interests extend to reading, gaming, and continuously challenging myself with concepts beyond my current level of understanding.
-
-I would describe myself as a curious and introspective individual, who prefers learning through exploration and consistent practice. Currently, I am focused on building a Python-based application and strengthening my technical foundation.
-
-In the long term, I aim to evolve into a capable and independent individual with an entrepreneurial mindset, combining creativity, technology, and problem-solving in meaningful ways.</p>
   <hr>
-</section>
 
-<hr>
+  <section id="about" class="me">
+    <h2>About Me</h2>
+    <p class="p1">My name is Randeep Raj, a Class 9 student at <a
+        href="https://www.google.com/maps/search/The+Velammal+International+School+Ponneri" style="color: #B0E4CC;">The
+        Velammal International School, Ponneri</a>. Originally from Patna, Bihar, I am currently based in Chennai. I
+      consider myself a self-driven learner with a strong inclination toward technology and creativity.</p>
+    <hr>
+  </section>
 
-<section id="journey" class="journey">
-  <h2>My Journey</h2><br>
-  <img src="3.png" alt="My Journey">
-  <div class="card">
-    <p>Describe your journey here.</p>
-  </div>
   <hr>
-</section>
 
-<hr>
+  <section id="journey" class="journey">
+    <h2>My Journey</h2><br>
+    <p class="p2">Over the past two years, I have been actively developing my programming skills in: <br>
+      ✔ HTML <br>
+      ✔ CSS <br>
+      ✔ JavaScript <br>
 
-<section id="contact" class="contact">
-  <h2>Contact</h2>
-  <p>📧 randeepraj309@hotmail.com</p>
-  <p>📷 rrr.yxsh</p>
-</section>
+      Alongside this, I have also started exploring the fundamentals of Artificial Intelligence and experimenting with
+      emerging tools in the tech space.
+    </p>
+    <hr>
+  </section>
 
-<footer>
-  <p>© 2026 Randeep Raj</p>
-</footer>
+  <hr>
+  <section id="Strings" class="Strings">
+    <h2>Strings & Sound</h2><br>
+    <p class="p3"> Alongside coding, I hold a Grade 3 certification in Guitar from Trinity College London, which
+      reflects both my passion for music and the discipline I’ve built through consistent practice.
 
-<script>
-  const roles = ["Programmer", "Video Editor", "Guitarist"];
-  let roleIndex = 0, charIndex = 0;
-  const prefix = "I am ";
+      I also have foundational experience in video editing and enjoy working with various digital creative tools.</p>
+  </section>
+  <hr>
 
-  function type() {
-    let current = roles[roleIndex];
-    document.getElementById("typing").textContent = prefix + current.slice(0, ++charIndex);
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>📧 randeepraj309@hotmail.com</p>
+    <p>📷 rrr.yxsh</p>
+  </section>
 
-    if (charIndex === current.length) {
-      setTimeout(erase, 1500);
-    } else {
-      setTimeout(type, 80);
-    }
-  }
 
-  function erase() {
-    let current = roles[roleIndex];
-    if (charIndex > 0) {
-      document.getElementById("typing").textContent = prefix + current.slice(0, --charIndex);
-      setTimeout(erase, 40);
-    } else {
-      roleIndex = (roleIndex + 1) % roles.length;
-      setTimeout(type, 300);
-    }
-  }
+  <footer>
+    <p>© 2026 Randeep Raj</p>
+  </footer>
 
-  type();
+  <script>
+    const roles = ["Programmer", "Video Editor", "Guitarist"];
+    let roleIndex = 0, charIndex = 0;
+    const prefix = "I am ";
 
-  const sections = document.querySelectorAll("section");
+    function type() {
+      let current = roles[roleIndex];
+      document.getElementById("typing").textContent = prefix + current.slice(0, ++charIndex);
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("show");
+      if (charIndex === current.length) {
+        setTimeout(erase, 1500);
+      } else {
+        setTimeout(type, 80);
       }
-    });
-  }, { threshold: 0.2 });
+    }
 
-  sections.forEach(sec => observer.observe(sec));
-</script>
+    function erase() {
+      let current = roles[roleIndex];
+      if (charIndex > 0) {
+        document.getElementById("typing").textContent = prefix + current.slice(0, --charIndex);
+        setTimeout(erase, 40);
+      } else {
+        roleIndex = (roleIndex + 1) % roles.length;
+        setTimeout(type, 300);
+      }
+    }
+
+    type();
+
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(sec => observer.observe(sec));
+  </script>
 
 </body>
+
 </html>
