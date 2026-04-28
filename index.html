@@ -180,6 +180,48 @@
     .Strings {
       margin-top: 40px;
       margin-bottom: 40px;
+      padding-bottom: 50px;
+    }
+
+    .name,
+    .rate,
+    .submit {
+      background: #285A48;
+      border-radius: 10px;
+      padding: 20px;
+
+    }
+
+
+    input,
+    select,
+    button {
+      font-family: 'Dancing Script', cursive;
+      font-size: 20px;
+      margin: 5px 0;
+      background: #285A48;
+      border-radius: 10px;
+      padding: 30px 0px 30px 0px ;
+      color: #B0E4CC;
+
+
+    }
+
+    .feedback {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-bottom: 30px;
+    }
+    input::placeholder{      color: #B0E4CC;
+}
+
+    .co {
+      color: #285A48;
     }
 
 
@@ -215,7 +257,8 @@
         /* remove slide offset on mobile */
         opacity: 1;
         /* show instantly (no delay feel) */
-      margin-left: 20px;}
+        margin-left: 20px;
+      }
 
       h2 {
         font-size: 2rem;
@@ -276,6 +319,22 @@
         font-size: 1rem;
         padding: 10px;
       }
+      .co{
+        font-size: 1.8rem;
+      }
+       input,
+    select,
+    button {
+      font-family: 'Dancing Script', cursive;
+      font-size: 0.7rem;
+      margin: 5px 0;
+      background: #285A48;
+      border-radius: 10px;
+      padding: 30px 0px 30px 0px ;
+      color: #B0E4CC;
+
+
+    }
     }
   </style>
 </head>
@@ -287,7 +346,7 @@
     <nav>
       <a href="#home">Home</a>
       <a href="#about">About</a>
-      <a href="#journey">Technical Journey</a>
+      <a href="#journey">Journey</a>
       <a href="#Strings">Strings</a>
       <a href="#contact">Contact</a>
 
@@ -342,6 +401,28 @@
   </section>
   <hr>
 
+  <section class="feedback" id="feedback">
+    <h2>
+      <p class="co">Feedback</p>
+    </h2><br>
+    <form action="submit.php" method="POST">
+      <input type="text" name="name" class="name" placeholder="Your Name" required><br>
+      Ho much do you like my crestion ? <br>
+
+      <select class="rate" name="rating" required>
+        <option value="">Rating</option>
+        <option value="1">1 ⭐</option>
+        <option value="2">2 ⭐⭐</option>
+        <option value="3">3 ⭐⭐⭐</option>
+        <option value="4">4 ⭐⭐⭐⭐</option>
+        <option value="5">5 ⭐⭐⭐⭐⭐</option>
+      </select>
+      <br>
+
+      <button type="submit" class="submit">Submit</button>
+    </form>
+  </section>
+  <hr>
   <section id="contact" class="contact">
     <h2>Contact</h2>
     <p>📧 randeepraj309@hotmail.com</p>
