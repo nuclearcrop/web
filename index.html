@@ -201,7 +201,7 @@
       margin: 5px 0;
       background: #285A48;
       border-radius: 10px;
-      padding: 30px 0px 30px 0px ;
+      padding: 30px 0px 30px 0px;
       color: #B0E4CC;
 
 
@@ -217,13 +217,16 @@
       text-align: center;
       padding-bottom: 30px;
     }
-    input::placeholder{      color: #B0E4CC;
-}
+
+    input::placeholder {
+      color: #B0E4CC;
+    }
 
     .co {
       color: #285A48;
     }
-    .cre{
+
+    .cre {
       font-size: 1.4rem;
       margin-bottom: -10px;
     }
@@ -251,9 +254,9 @@
       }
 
       nav a {
-        font-size: 12px;
+        font-size: 14px;
         display: contents;
-        word-spacing: 10PX;
+        word-spacing: 200PX;
       }
 
       section {
@@ -324,22 +327,28 @@
         font-size: 1rem;
         padding: 10px;
       }
-      .co{
+
+      .co {
         font-size: 1.8rem;
       }
-       input,
-    select,
-    button {
-      font-family: 'Dancing Script', cursive;
-      font-size: 0.7rem;
-      margin: 5px 0;
-      background: #285A48;
-      border-radius: 10px;
-      padding: 30px 0px 30px 0px ;
-      color: #B0E4CC;
+
+      input,
+      select,
+      button {
+        font-family: 'Dancing Script', cursive;
+        font-size: 0.7rem;
+        margin: 5px 0;
+        background: #285A48;
+        border-radius: 10px;
+        padding: 30px 0px 30px 0px;
+        color: #B0E4CC;
 
 
-    }
+      }
+      .nav{
+        word-spacing: 4px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -348,12 +357,14 @@
 
   <header>
     <h1>Randeep Raj</h1>
-    <nav>
+    <nav class="nav">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#journey">Journey</a>
       <a href="#Strings">Strings</a>
+      <a href="#feedback">Feedback</a>
       <a href="#contact">Contact</a>
+
 
 
     </nav>
@@ -418,48 +429,48 @@
     <h2>
       <p class="co">Feedback</p>
     </h2><br>
-    
 
 
 
 
-<form id="feedbackForm" >
-  <input type="text" name="name"  class="name" placeholder="Your Name" required><br>
+
+    <form id="feedbackForm">
+      <input type="text" name="name" class="name" placeholder="Your Name" required><br>
       <p class="cre">Ho much do you like my crestion ?</p> <br>
 
-  <select class="rate" name="rating" required>
-    <option value="">Rating</option>
-    <option value="1">1 ⭐</option>
-    <option value="2">2 ⭐⭐</option>
-    <option value="3">3 ⭐⭐⭐</option>
-    <option value="4">4 ⭐⭐⭐⭐</option>
-    <option value="5">5 ⭐⭐⭐⭐⭐</option>
-  </select>
-  <br>
+      <select class="rate" name="rating" required>
+        <option value="">Rating</option>
+        <option value="1">1 ⭐</option>
+        <option value="2">2 ⭐⭐</option>
+        <option value="3">3 ⭐⭐⭐</option>
+        <option value="4">4 ⭐⭐⭐⭐</option>
+        <option value="5">5 ⭐⭐⭐⭐⭐</option>
+      </select>
+      <br>
 
-  <button type="submit" class="submit">Submit</button>
-</form>
+      <button type="submit" class="submit">Submit</button>
+    </form>
 
-<script>
-const scriptURL = "https://script.google.com/macros/s/AKfycbyjQvubuqr7LYK4wNnrT2Gh-8UCAMQamQmYAqnrziGNBr5JqiJ3C_yc_H2ASI-gQgVCsw/exec";
+    <script>
+      const scriptURL = "https://script.google.com/macros/s/AKfycbyjQvubuqr7LYK4wNnrT2Gh-8UCAMQamQmYAqnrziGNBr5JqiJ3C_yc_H2ASI-gQgVCsw/exec";
 
-document.getElementById("feedbackForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+      document.getElementById("feedbackForm").addEventListener("submit", function (e) {
+        e.preventDefault();
 
-  const formData = new FormData(this);
+        const formData = new FormData(this);
 
-  fetch(scriptURL, {
-    method: "POST",
-    body: formData,
-    mode: "no-cors"   // 🔥 THIS FIXES YOUR ERROR
-  })
-  .then(() => {
-    alert("Feedback sent!");
-    this.reset();
-  })
-  .catch(() => alert("Error!"));
-});
-</script>
+        fetch(scriptURL, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors"   // 🔥 THIS FIXES YOUR ERROR
+        })
+          .then(() => {
+            alert("Feedback sent!");
+            this.reset();
+          })
+          .catch(() => alert("Error!"));
+      });
+    </script>
 
 
 
@@ -473,7 +484,7 @@ document.getElementById("feedbackForm").addEventListener("submit", function(e) {
 
 
 
-  
+
 
 
 
