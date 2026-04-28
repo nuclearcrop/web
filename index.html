@@ -204,8 +204,14 @@
       padding: 30px 0px 30px 0px;
       color: #B0E4CC;
 
-
     }
+   button {
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.1); /* increases overall size */
+}
 
     .feedback {
       margin-top: 40px;
@@ -229,6 +235,15 @@
     .cre {
       font-size: 1.4rem;
       margin-bottom: -10px;
+      display: none;
+    }
+    a{
+      text-decoration: none;
+      color: #B0E4CC;
+       transition: transform 0.2s ease;
+    }
+    a:hover{
+      transform: scale(1.15);
     }
 
 
@@ -243,7 +258,7 @@
       }
 
       header {
-        padding: 10px 15px;
+        padding: 5px 20px 5px 23px;
       }
 
       header h1 {
@@ -254,9 +269,10 @@
       }
 
       nav a {
-        font-size: 14px;
         display: contents;
-        word-spacing: 200PX;
+        font-size: 12px;
+        word-spacing: 4px;
+
       }
 
       section {
@@ -308,9 +324,37 @@
         line-height: 1.5;
       }
 
-      p {
-        font-size: 1rem;
-      }
+input,
+select,
+button {
+  font-family: 'Dancing Script', cursive;
+  font-size: 10px;          /* ↓ MUST reduce font */
+  margin: 5px 0;
+  background: #285A48;
+  border-radius: 10px;
+  color: #B0E4CC;
+
+  min-width: 200px;
+
+  height: 20px;             /* your requirement */
+  padding: 0 6px;           /* keep tight */
+  line-height: 20px;        /* EXACT match */
+  
+  box-sizing: border-box;
+}
+
+select {
+  min-width: 150px;
+}
+input{
+  min-width: 250px;
+}
+button{
+  min-width: 75px;
+}
+      
+
+
 
       /* JOURNEY IMAGE */
       .journey img {
@@ -331,24 +375,16 @@
       .co {
         font-size: 1.8rem;
       }
-
-      input,
-      select,
-      button {
-        font-family: 'Dancing Script', cursive;
-        font-size: 0.7rem;
-        margin: 5px 0;
-        background: #285A48;
-        border-radius: 10px;
-        padding: 30px 0px 30px 0px;
-        color: #B0E4CC;
-
-
+      .cre{
+        display: contents;
       }
-      .nav{
-        word-spacing: 2px;
-        font-size: 8px;
+      .a{
+        word-spacing: 3px;
       }
+
+     
+
+
     }
   </style>
 </head>
@@ -358,12 +394,13 @@
   <header>
     <h1>Randeep Raj</h1>
     <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#journey">Journey</a>
-      <a href="#Strings">Strings</a>
-      <a href="#feedback">Feedback</a>
-      <a href="#contact">Contact</a>
+      <p class="a"> <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#journey">Journey</a>
+        <a href="#Strings">Strings</a>
+        <a href="#feedback">Feedback</a>
+        <a href="#contact">Contact</a>
+      </p>
 
 
 
@@ -439,7 +476,7 @@
       <p class="cre">Ho much do you like my crestion ?</p> <br>
 
       <select class="rate" name="rating" required>
-        <option value="">Rating</option>
+        <option value="">Ho much do you like my crestion ?</option>
         <option value="1">1 ⭐</option>
         <option value="2">2 ⭐⭐</option>
         <option value="3">3 ⭐⭐⭐</option>
@@ -450,6 +487,7 @@
 
       <button type="submit" class="submit">Submit</button>
     </form>
+    
 
     <script>
       const scriptURL = "https://script.google.com/macros/s/AKfycbyjQvubuqr7LYK4wNnrT2Gh-8UCAMQamQmYAqnrziGNBr5JqiJ3C_yc_H2ASI-gQgVCsw/exec";
@@ -498,7 +536,7 @@
   <section id="contact" class="contact">
     <h2>Contact</h2>
     <p>📧 randeepraj309@hotmail.com</p>
-    <p>📷 rrr.yxsh</p>
+  <a href="https://www.instagram.com/rrr.yxsh/">  <p>📷 @ rrr.yxsh</p></a>
   </section>
 
 
