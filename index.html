@@ -223,6 +223,10 @@
     .co {
       color: #285A48;
     }
+    .cre{
+      font-size: 1.4rem;
+      margin-bottom: -10px;
+    }
 
 
 
@@ -258,6 +262,7 @@
         opacity: 1;
         /* show instantly (no delay feel) */
         margin-left: 20px;
+        margin-right: 20px;
       }
 
       h2 {
@@ -401,27 +406,83 @@
   </section>
   <hr>
 
+
+
+
+
+
+
+
+
   <section class="feedback" id="feedback">
     <h2>
       <p class="co">Feedback</p>
     </h2><br>
-    <form action="submit.php" method="POST">
-      <input type="text" name="name" class="name" placeholder="Your Name" required><br>
-      Ho much do you like my crestion ? <br>
+    
 
-      <select class="rate" name="rating" required>
-        <option value="">Rating</option>
-        <option value="1">1 ⭐</option>
-        <option value="2">2 ⭐⭐</option>
-        <option value="3">3 ⭐⭐⭐</option>
-        <option value="4">4 ⭐⭐⭐⭐</option>
-        <option value="5">5 ⭐⭐⭐⭐⭐</option>
-      </select>
-      <br>
 
-      <button type="submit" class="submit">Submit</button>
-    </form>
+
+
+<form id="feedbackForm" >
+  <input type="text" name="name"  class="name" placeholder="Your Name" required><br>
+      <p class="cre">Ho much do you like my crestion ?</p> <br>
+
+  <select class="rate" name="rating" required>
+    <option value="">Rating</option>
+    <option value="1">1 ⭐</option>
+    <option value="2">2 ⭐⭐</option>
+    <option value="3">3 ⭐⭐⭐</option>
+    <option value="4">4 ⭐⭐⭐⭐</option>
+    <option value="5">5 ⭐⭐⭐⭐⭐</option>
+  </select>
+  <br>
+
+  <button type="submit" class="submit">Submit</button>
+</form>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbyjQvubuqr7LYK4wNnrT2Gh-8UCAMQamQmYAqnrziGNBr5JqiJ3C_yc_H2ASI-gQgVCsw/exec";
+
+document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  fetch(scriptURL, {
+    method: "POST",
+    body: formData,
+    mode: "no-cors"   // 🔥 THIS FIXES YOUR ERROR
+  })
+  .then(() => {
+    alert("Feedback sent!");
+    this.reset();
+  })
+  .catch(() => alert("Error!"));
+});
+</script>
+
+
+
+
+
+
   </section>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
   <hr>
   <section id="contact" class="contact">
     <h2>Contact</h2>
