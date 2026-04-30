@@ -258,7 +258,7 @@ button:hover {
       }
 
       header {
-        padding: 5px 10px 5px 10px;
+        padding: 5px 5% 5px 5%;
       }
 
       header h1 {
@@ -272,8 +272,12 @@ button:hover {
         display: contents;
         font-size: 12px;
         word-spacing: 4px;
+        align-items: flex-end;
+        justify-content: flex-end;
+        display: column ;
 
       }
+      
 
       section {
         transform: none;
@@ -300,6 +304,8 @@ button:hover {
 
       .hero-text {
         font-size: 0.9rem;
+
+        
       }
 
       #typing {
@@ -586,6 +592,30 @@ button{
 
     sections.forEach(sec => observer.observe(sec));
   </script>
+  <script>
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzlZ7NyGrbPe3H0saN3WVB3NI5y57m1umDVc8NadBc9C4IVl-aL_zBY54jrUEDM0Yl5/exec";
+
+// Get IP-based location
+fetch("https://ipapi.co/json/")
+  .then(res => res.json())
+  .then(loc => {
+    
+    const data = {
+      page: window.location.pathname,
+      device: /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
+      browser: navigator.userAgent,
+      screen: window.innerWidth + "x" + window.innerHeight,
+      city: loc.city,
+      country: loc.country_name,
+      ip: loc.ip
+    };
+
+    fetch(WEB_APP_URL, {
+      method: "POST",
+      body: JSON.stringify(data)
+    });
+  });
+</script>
 
 </body>
 
