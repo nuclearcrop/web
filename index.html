@@ -469,50 +469,62 @@ button{
 
 
 
- <section class="feedback" id="feedback">
-  <h2>
-    <p class="co">Feedback</p>
-  </h2><br>
+<section class="feedback" id="feedback">
+  <h2><p class="co">Feedback</p></h2><br>
 
   <form id="feedbackForm">
-    <input type="text" name="name" class="name" placeholder="Your Name" required><br>
+    <input type="text" name="name" placeholder="Your Name" required><br>
 
-    <p class="cre">How much do you like my creation?</p><br>
+    <p>How much do you like my creation?</p><br>
 
-    <select class="rate" name="rating" required>
-      <option value="">How much do you like my creation?</option>
+    <select name="rating" required>
+      <option value="">Select Rating</option>
       <option value="1">1 ⭐</option>
       <option value="2">2 ⭐⭐</option>
       <option value="3">3 ⭐⭐⭐</option>
       <option value="4">4 ⭐⭐⭐⭐</option>
       <option value="5">5 ⭐⭐⭐⭐⭐</option>
-    </select>
-    <br>
+    </select><br>
 
-    <!-- ✅ NEW FIELD -->
-    <textarea name="suggestion" class="suggestion" placeholder="Your Suggestion"></textarea><br>
+    <textarea name="suggestion" placeholder="Your Suggestion"></textarea><br>
 
-    <button type="submit" class="submit">Submit</button>
+    <button type="submit">Submit</button>
   </form>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyjQvubuqr7LYK4wNnrT2Gh-8UCAMQamQmYAqnrziGNBr5JqiJ3C_yc_H2ASI-gQgVCsw/exec";
+    const scriptURL = "YOUR_GOOGLE_SCRIPT_URL";
 
-    document.getElementById("feedbackForm").addEventListener("submit", function (e) {
+    document.getElementById("feedbackForm").addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const formData = new FormData(this);
+
+      // ✅ Add Time
+      const now = new Date();
+      formData.append("time", now.toLocaleString());
+
+      try {
+        // ✅ Get Location (IP based)
+        const res = await fetch("https://ipapi.co/json/");
+        const data = await res.json();
+
+        formData.append("city", data.city);
+        formData.append("region", data.region);
+        formData.append("country", data.country_name);
+      } catch (err) {
+        formData.append("city", "Unknown");
+        formData.append("region", "Unknown");
+        formData.append("country", "Unknown");
+      }
 
       fetch(scriptURL, {
         method: "POST",
         body: formData,
         mode: "no-cors"
-      })
-      .then(() => {
-        alert("Feedback sent!");
-        this.reset();
-      })
-      .catch(() => alert("Error!"));
+      });
+
+      alert("Feedback sent!");
+      this.reset();
     });
   </script>
 </section>
