@@ -469,61 +469,53 @@ button{
 
 
 
-  <section class="feedback" id="feedback">
-    <h2>
-      <p class="co">Feedback</p>
-    </h2><br>
+ <section class="feedback" id="feedback">
+  <h2>
+    <p class="co">Feedback</p>
+  </h2><br>
 
+  <form id="feedbackForm">
+    <input type="text" name="name" class="name" placeholder="Your Name" required><br>
 
+    <p class="cre">How much do you like my creation?</p><br>
 
+    <select class="rate" name="rating" required>
+      <option value="">How much do you like my creation?</option>
+      <option value="1">1 ⭐</option>
+      <option value="2">2 ⭐⭐</option>
+      <option value="3">3 ⭐⭐⭐</option>
+      <option value="4">4 ⭐⭐⭐⭐</option>
+      <option value="5">5 ⭐⭐⭐⭐⭐</option>
+    </select>
+    <br>
 
+    <!-- ✅ NEW FIELD -->
+    <textarea name="suggestion" class="suggestion" placeholder="Your Suggestion"></textarea><br>
 
-    <form id="feedbackForm">
-      <input type="text" name="name" class="name" placeholder="Your Name" required><br>
-      <p class="cre">Ho much do you like my creation ?</p> <br>
+    <button type="submit" class="submit">Submit</button>
+  </form>
 
-      <select class="rate" name="rating" required>
-        <option value="">Ho much do you like my creation ?</option>
-        <option value="1">1 ⭐</option>
-        <option value="2">2 ⭐⭐</option>
-        <option value="3">3 ⭐⭐⭐</option>
-        <option value="4">4 ⭐⭐⭐⭐</option>
-        <option value="5">5 ⭐⭐⭐⭐⭐</option>
-      </select>
-      <br>
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyjQvubuqr7LYK4wNnrT2Gh-8UCAMQamQmYAqnrziGNBr5JqiJ3C_yc_H2ASI-gQgVCsw/exec";
 
-      <button type="submit" class="submit">Submit</button>
-    </form>
-    
+    document.getElementById("feedbackForm").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    <script>
-      const scriptURL = "https://script.google.com/macros/s/AKfycbyjQvubuqr7LYK4wNnrT2Gh-8UCAMQamQmYAqnrziGNBr5JqiJ3C_yc_H2ASI-gQgVCsw/exec";
+      const formData = new FormData(this);
 
-      document.getElementById("feedbackForm").addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        const formData = new FormData(this);
-
-        fetch(scriptURL, {
-          method: "POST",
-          body: formData,
-          mode: "no-cors"   // 🔥 THIS FIXES YOUR ERROR
-        })
-          .then(() => {
-            alert("Feedback sent!");
-            this.reset();
-          })
-          .catch(() => alert("Error!"));
-      });
-    </script>
-
-
-
-
-
-
-  </section>
-
+      fetch(scriptURL, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors"
+      })
+      .then(() => {
+        alert("Feedback sent!");
+        this.reset();
+      })
+      .catch(() => alert("Error!"));
+    });
+  </script>
+</section>
 
 
 
