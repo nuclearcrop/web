@@ -8,6 +8,14 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;600&display=swap"
     rel="stylesheet">
+    <script>
+let visitorId = localStorage.getItem("visitorId");
+
+if (!visitorId) {
+  visitorId = "ID-" + Math.random().toString(36).substr(2, 9);
+  localStorage.setItem("visitorId", visitorId);
+}
+</script>
 
   <style>
     * {
@@ -79,6 +87,7 @@
       gap: 20px;
       padding: 50px 0px 0px 0px;
       margin: auto;
+      overflow: hidden;
     }
 
     .hero-text {
@@ -86,12 +95,34 @@
       text-align: center;
       font-size: 1rem;
       /* FIXED */
-    }
+      position: absolute;
+animation-name: ran;
+animation-duration: 2s;
+animation-direction: normal;
+animation-fill-mode: forwards;
+animation-delay: 0s;
+
+
+}
+@keyframes ran {
+  from{
+    transform: translateX(100%);
+    transform: translateY(-100%);
+  }
+  to{
+    transform: translateX(0);
+    transform: translateY(0);
+  }
+  
+}
+
 
     .hero-image {
       flex: 1;
       display: flex;
       justify-content: flex-end;
+      
+      
     }
 
     .hero-image img {
@@ -99,13 +130,51 @@
       max-width: 350px;
       border-radius: 10px;
       filter: brightness(0.85) contrast(1.1) saturate(0.9);
+      animation-name: yo;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-fill-mode: forwards;
+      animation-duration: 1.5s;
+      animation-delay: 0s;
+      animation-timing-function: ease-in;
+
+     
 
     }
+
+    .hero-image {
+      display: flex;
+      justify-content: flex-end;
+
+      position: relative;
+      /* IMPORTANT */
+     
+
+
+    }
+
+
+    @keyframes yo {
+     from{
+transform: translateX(-400px);
+transform: translateY(60%);
+     }
+     to{
+transform: translateY(0);  
+transform: translateX(0);
+
+
+}
+    }
+   
+
+
+
 
     #typing {
       font-size: 2.5rem;
       margin-top: 10px;
-    }
+    } 
 
     hr {
       border: none;
@@ -120,6 +189,29 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+
+    }
+
+    .me {
+      animation-name: o;
+      position: relative;
+      animation-duration: 1s;
+      animation-direction: normal;
+      animation-fill-mode: forwards ;
+      animation-timing-function: ease-in-out;
+    }
+
+    @keyframes o {
+      from {
+        left: -20%;
+        top: 30%;
+      }
+
+      to {
+        left: 0;
+        top: 0;
+      }
+
     }
 
     .journey img {
@@ -195,23 +287,78 @@
 
     input,
     select,
-    button {
+    button,
+    textarea {
       font-family: 'Dancing Script', cursive;
       font-size: 20px;
       margin: 5px 0;
       background: #285A48;
       border-radius: 10px;
-      padding: 30px 0px 30px 0px;
-      color: #B0E4CC;
+      margin-bottom: 20px;
+      color: #6eaa8e;
+justify-content: center;
+display: table-column;
+align-items: center;
 
     }
-   button {
-  transition: transform 0.2s ease;
-}
+    input::placeholder{
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-button:hover {
-  transform: scale(1.1); /* increases overall size */
-}
+     select::placeholder{
+      align-items: center;
+      justify-content: center;
+            text-align: center;
+
+    }
+     textarea::placeholder{
+      align-items: center;
+      justify-content: center;
+            text-align: center;
+
+    }
+    button {
+      transition: transform 0.2s ease;
+    }
+
+    .box {
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      
+      animation-name: anime;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-fill-mode: forwards;
+      position: relative;
+      animation-duration: 1s;
+      animation-direction: alternate;
+      padding:20px 40px ;
+    
+      animation-timing-function: linear;
+      
+
+    }
+
+    @keyframes anime {
+      from {
+transform: translateX(-100%);
+      }
+
+      to {
+transform: translateX(100%);      }
+    }
+
+
+
+
+
+    button:hover {
+      transform: scale(1.1);
+      /* increases overall size */
+    }
 
     .feedback {
       margin-top: 40px;
@@ -221,7 +368,7 @@ button:hover {
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding-bottom: 30px;
+      padding-bottom: 50px;
     }
 
     input::placeholder {
@@ -237,14 +384,18 @@ button:hover {
       margin-bottom: -10px;
       display: none;
     }
-    a{
+
+    a {
       text-decoration: none;
       color: #B0E4CC;
-       transition: transform 0.2s ease;
+      transition: transform 0.2s ease;
     }
-    a:hover{
+
+    a:hover {
       transform: scale(1.15);
     }
+
+
 
 
 
@@ -258,7 +409,7 @@ button:hover {
       }
 
       header {
-        padding: 5px 5% 5px 5%;
+        padding: 5px 10px 5px 10px;
       }
 
       header h1 {
@@ -272,12 +423,8 @@ button:hover {
         display: contents;
         font-size: 12px;
         word-spacing: 4px;
-        align-items: flex-end;
-        justify-content: flex-end;
-        display: column ;
 
       }
-      
 
       section {
         transform: none;
@@ -304,8 +451,6 @@ button:hover {
 
       .hero-text {
         font-size: 0.9rem;
-
-        
       }
 
       #typing {
@@ -330,35 +475,41 @@ button:hover {
         line-height: 1.5;
       }
 
-input,
-select,
-button {
-  font-family: 'Dancing Script', cursive;
-  font-size: 10px;          /* ↓ MUST reduce font */
-  margin: 5px 0;
-  background: #285A48;
-  border-radius: 10px;
-  color: #B0E4CC;
+      input,
+      select,
+      button {
+        font-family: 'Dancing Script', cursive;
+        font-size: 15px;
+        /* ↓ MUST reduce font */
+        background: #285A48;
+        border-radius: 10px;
+        color: #B0E4CC;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 20px;
+        /* your requirement */
+        /* keep tight */
+        /* EXACT match */
 
-  min-width: 200px;
+        box-sizing: border-box;
+      }
 
-  height: 20px;             /* your requirement */
-  padding: 0 6px;           /* keep tight */
-  line-height: 20px;        /* EXACT match */
-  
-  box-sizing: border-box;
-}
+      select {
+        min-width: 150px;
+      }
 
-select {
-  min-width: 150px;
-}
-input{
-  min-width: 250px;
-}
-button{
-  min-width: 75px;
-}
-      
+      input {
+        min-width: 250px;
+      }
+      button::placeholder{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+     
+
 
 
 
@@ -381,15 +532,17 @@ button{
       .co {
         font-size: 1.8rem;
       }
-      .cre{
+
+      .cre {
         display: contents;
       }
-      .a{
-        word-spacing: 3px;
-      font-size: 2px;
-    }
 
-     
+      .a {
+        word-spacing: 3px;
+        font-size: 2px;
+      }
+
+
 
 
     }
@@ -468,65 +621,60 @@ button{
 
 
 
-
 <section class="feedback" id="feedback">
-  <h2><p class="co">Feedback</p></h2><br>
+  <h2>
+    <p class="co">Feedback</p>
+  </h2><br>
 
   <form id="feedbackForm">
-    <input type="text" name="name" placeholder="Your Name" required><br>
 
-    <p>How much do you like my creation?</p><br>
+    <input type="text" name="name" class="name" placeholder="Your Name"><br>
 
-    <select name="rating" required>
-      <option value="">Select Rating</option>
+    <p class="cre">How much do you like my creation?</p><br>
+
+    <select class="rate" name="rating">
+      <option value="">How much do you like my creation?</option>
       <option value="1">1 ⭐</option>
       <option value="2">2 ⭐⭐</option>
       <option value="3">3 ⭐⭐⭐</option>
       <option value="4">4 ⭐⭐⭐⭐</option>
       <option value="5">5 ⭐⭐⭐⭐⭐</option>
-    </select><br>
+    </select>
+    <br>
 
-    <textarea name="suggestion" placeholder="Your Suggestion"></textarea><br>
+    <!-- ✅ NEW FIELD -->
+    <input type="text" name="suggestion" class="name" placeholder="Any suggestion?"><br>
 
-    <button type="submit">Submit</button>
+    <button type="submit" class="box">Submit</button>
   </form>
 
-  <script>
-    const scriptURL = "YOUR_GOOGLE_SCRIPT_URL";
+ <script>
+const FEEDBACK_URL = "https://script.google.com/macros/s/AKfycby5ewj0FyBFZbpGNxkZYh51otGVLeqEh7D8k50EEAru0qT9-VeZZySBQPxmYsubs0kj3w/exec";
 
-    document.getElementById("feedbackForm").addEventListener("submit", async function (e) {
-      e.preventDefault();
+document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+  e.preventDefault();
 
-      const formData = new FormData(this);
+  const form = this;
 
-      // ✅ Add Time
-      const now = new Date();
-      formData.append("time", now.toLocaleString());
+  const data = {
+    visitorId: visitorId,
+    time: new Date().toLocaleString(),
 
-      try {
-        // ✅ Get Location (IP based)
-        const res = await fetch("https://ipapi.co/json/");
-        const data = await res.json();
+    name: form.name.value || "-",
+    rating: form.rating.value || "-",
+    suggestion: form.suggestion.value || "-"
+  };
 
-        formData.append("city", data.city);
-        formData.append("region", data.region);
-        formData.append("country", data.country_name);
-      } catch (err) {
-        formData.append("city", "Unknown");
-        formData.append("region", "Unknown");
-        formData.append("country", "Unknown");
-      }
-
-      fetch(scriptURL, {
-        method: "POST",
-        body: formData,
-        mode: "no-cors"
-      });
-
-      alert("Feedback sent!");
-      this.reset();
-    });
-  </script>
+  fetch(FEEDBACK_URL, {
+    method: "POST",
+    body: JSON.stringify(data)
+  })
+  .then(() => {
+    alert("Feedback submitted!");
+    form.reset();
+  });
+});
+</script>
 </section>
 
 
@@ -541,13 +689,13 @@ button{
 
 
 
-
-
-  <hr>
+  <hr class="rh">
   <section id="contact" class="contact">
     <h2>Contact</h2>
     <p>📧 randeepraj309@hotmail.com</p>
-  <a href="https://www.instagram.com/rrr.yxsh/">  <p>📷 @ rrr.yxsh</p></a>
+    <a href="https://www.instagram.com/rrr.yxsh/">
+      <p>📷 @ rrr.yxsh</p>
+    </a>
   </section>
 
 
@@ -596,29 +744,40 @@ button{
 
     sections.forEach(sec => observer.observe(sec));
   </script>
-  <script>
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzlZ7NyGrbPe3H0saN3WVB3NI5y57m1umDVc8NadBc9C4IVl-aL_zBY54jrUEDM0Yl5/exec";
+<script>
+const VISITOR_URL = "https://script.google.com/macros/s/AKfycbyQqocCo1RU2GEnZVlsV-oKzQdxgZcxmDiKChhTRJpiiukATNCtg_9ZBhIPLFD8P4eh/exec";
 
-// Get IP-based location
-fetch("https://ipapi.co/json/")
-  .then(res => res.json())
-  .then(loc => {
-    
-    const data = {
-      page: window.location.pathname,
-      device: /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
-      browser: navigator.userAgent,
-      screen: window.innerWidth + "x" + window.innerHeight,
-      city: loc.city,
-      country: loc.country_name,
-      ip: loc.ip
-    };
+async function trackVisitor() {
 
-    fetch(WEB_APP_URL, {
-      method: "POST",
-      body: JSON.stringify(data)
-    });
+  let loc = {};
+
+  try {
+    const res = await fetch("https://ipwho.is/");
+    const data = await res.json();
+    if (data.success) loc = data;
+  } catch {}
+
+  const data = {
+    visitorId: visitorId,
+    time: new Date().toLocaleString(),
+    page: window.location.pathname,
+
+    device: /Mobi|Android/i.test(navigator.userAgent) ? "Mobile" : "Desktop",
+    browser: navigator.userAgent,
+    screen: window.innerWidth + "x" + window.innerHeight,
+
+    city: loc.city || "-",
+    country: loc.country || "-",
+    ip: loc.ip || "-"
+  };
+
+  fetch(VISITOR_URL, {
+    method: "POST",
+    body: JSON.stringify(data)
   });
+}
+
+trackVisitor();
 </script>
 
 </body>
